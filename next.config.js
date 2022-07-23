@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: false,
   env: {
-    SANITY_PROJECT_ID: 'pcfuv9je'
+    SANITY_PROJECT_ID: process.env.SANITY_PROJECT_ID
   }
 }
 
