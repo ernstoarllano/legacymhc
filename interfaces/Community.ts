@@ -6,3 +6,5 @@ export interface Community {
   state: string
   website: string
 }
+
+export interface Communities extends Array<Community> {}

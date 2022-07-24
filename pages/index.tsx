@@ -3,21 +3,31 @@ import { HomePageProps } from 'interfaces/Home'
 import client from 'lib/client'
 import { GetServerSideProps } from 'next'
 
-const HomePage = ({ communities }: HomePageProps) => {
-  return <DiscoverCommunity communities={communities} />
+const HomePage = ({ communities, totalCommunities }: HomePageProps) => {
+  console.log(totalCommunities)
+
+  return (
+    <DiscoverCommunity
+      communities={communities}
+      totalCommunities={totalCommunities}
+    />
+  )
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const communities = await client.fetch(
-    `*[_type == 'community'] {
-      title,
-      city,
-      website
+export const getServerSideProps: GetServerSideProps = async () => {
+  const data = await client.fetch(
+    `{
+      'communities': *[_type == 'community'] | order(_createdAt asc) [0...3] {
+        title,
+        city,
+        website
+      },
+      'total': count(*[_type == 'community'])
     }`
   )
 
   return {
-    props: { communities },
+    props: { communities: data.communities, totalCommunities: data.total },
   }
 }
 
