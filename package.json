@@ -14,11 +14,14 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@fontsource/oxygen": "^4.5.7",
+    "@portabletext/react": "^1.0.6",
     "@sanity/client": "^3.3.2",
     "@types/node": "18.0.6",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
     "autoprefixer": "^10.4.7",
+    "classnames": "^2.3.1",
     "eslint": "8.20.0",
     "eslint-config-next": "12.2.3",
     "postcss": "^8.4.14",

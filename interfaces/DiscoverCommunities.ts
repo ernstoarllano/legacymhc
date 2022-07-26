@@ -1,6 +1,6 @@
 import { Community } from 'interfaces/Community'
 
-export interface DiscoverCommunityProps {
+export interface DiscoverCommunitiesProps {
   communities: Community[]
-  totalCommunities: number
+  count: number
 }

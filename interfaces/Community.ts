@@ -1,6 +1,8 @@
+import { Age } from 'interfaces/Age'
+
 export interface Community {
-  id: number
-  category: string
+  _id?: string
+  category: Age
   title: string
   city: string
   state: string
