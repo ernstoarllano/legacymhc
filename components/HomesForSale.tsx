@@ -5,7 +5,7 @@ const HomesForSale = ({ homes }: HomesForSaleProps) => {
   return (
     <>
       {homes && (
-        <div className="lg:grid lg:grid-cols-3 lg:gap-6 mt-8">
+        <div className="lg:grid lg:grid-cols-3 lg:gap-6 mt-8" data-cy="homes">
           {homes.map((home) => (
             <Home
               key={home._id}

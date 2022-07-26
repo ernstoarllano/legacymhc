@@ -6,7 +6,10 @@ import { formatState } from 'utils/formatState'
 const Community = ({ category, title, city, state, website }: Community) => {
   return (
     <div className="flex flex-col">
-      <div className="flex flex-col relative mb-4 border border-solid border-gray-300">
+      <div
+        className="flex flex-col relative mb-4 border border-solid border-gray-300"
+        data-cy="image"
+      >
         <a href={website} target="_blank" rel="noreferrer">
           <Image
             src="/placeholder.webp"
@@ -18,18 +21,19 @@ const Community = ({ category, title, city, state, website }: Community) => {
         </a>
       </div>
       <div className="flex flex-col">
-        <span className="text-lg font-bold text-blue-700">
+        <span className="text-lg font-bold text-blue-700" data-cy="age">
           <Link href={category.slug.current}>
             <a>{category.title}</a>
           </Link>
         </span>
-        <h3 className="mb-0">
+        <h3 className="mb-0" data-cy="title">
           <a href={website} target="_blank" rel="noreferrer">
             {title}
           </a>
         </h3>
         <span>
-          {city}, {formatState(state)}
+          <span data-cy="city">{city}</span>,{' '}
+          <span data-cy="state">{formatState(state)}</span>
         </span>
       </div>
     </div>

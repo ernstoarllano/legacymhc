@@ -1,12 +1,15 @@
 import classNames from 'classnames'
+import { BlogGridProps } from 'interfaces/Blog'
 import Link from 'next/link'
 
-// TODO: Add type definitions
-const BlogGrid = ({ posts }: any) => {
+const BlogGrid = ({ posts }: BlogGridProps) => {
   return (
     <>
       {posts && (
-        <div className="lg:grid lg:grid-rows-6 lg:grid-flow-col lg:gap-8">
+        <div
+          className="lg:grid lg:grid-rows-6 lg:grid-flow-col lg:gap-8"
+          data-cy="blog"
+        >
           {posts.map((post, i) => {
             const rowClasses = classNames({
               'lg:row-span-3': i === 1 || i === 2,

@@ -28,7 +28,10 @@ const DiscoverCommunities = ({
   return (
     <>
       {data && (
-        <div className="lg:grid lg:grid-cols-3 lg:gap-6 mt-8">
+        <div
+          className="lg:grid lg:grid-cols-3 lg:gap-6 mt-8"
+          data-cy="communities"
+        >
           {data.map((community) => (
             <Community
               key={community._id}
@@ -46,6 +49,7 @@ const DiscoverCommunities = ({
           <button
             className="px-4 py-2 text-sm font-bold text-white bg-green-700 uppercase tracking-wider"
             onClick={handleMore}
+            data-cy="more"
           >
             {loading ? 'Loading...' : 'Load More'}
           </button>
