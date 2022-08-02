@@ -1,3 +1,4 @@
+import { Address } from 'interfaces/Address'
 import { Age } from 'interfaces/Age'
 
 export interface Community {
@@ -6,6 +7,7 @@ export interface Community {
   title: string
   city: string
   state: string
+  address?: Address
   website: string
 }
 

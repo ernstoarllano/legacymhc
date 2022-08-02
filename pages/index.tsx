@@ -1,3 +1,4 @@
+import Header from 'components/Header'
 import Section from 'components/Section'
 import { HomePageProps } from 'interfaces/Page'
 import { GetServerSideProps } from 'next'
@@ -22,9 +23,16 @@ const BlogGrid = dynamic(() => import('components/BlogGrid'), {
   suspense: true,
 })
 
-const HomePage = ({ communities, homes, count, posts }: HomePageProps) => {
+const HomePage = ({
+  communities,
+  homes,
+  count,
+  posts,
+  ages,
+}: HomePageProps) => {
   return (
     <>
+      <Header ages={ages} />
       <Section backgroundColor="bg-gray-100">
         <h2 className="text-blue-700 text-center">{`Discover a Community You\'ll Love`}</h2>
         <p className="text-center">
@@ -69,6 +77,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
       homes,
       count,
       posts,
+      ages,
     },
   }
 }

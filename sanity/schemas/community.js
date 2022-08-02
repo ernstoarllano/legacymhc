@@ -94,6 +94,11 @@ export default {
       }
     },
     {
+      name: 'address',
+      title: 'Address',
+      type: 'geopoint'
+    },
+    {
       name: 'website',
       title: 'Website',
       type: 'url'

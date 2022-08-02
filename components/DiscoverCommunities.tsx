@@ -9,7 +9,7 @@ const DiscoverCommunities = ({
   count,
 }: DiscoverCommunitiesProps) => {
   const [loading, setLoading] = useState<boolean | false>(false)
-  const [data, setData] = useState<Communities>(communities)
+  const [data, setData] = useState<Communities | []>(communities)
   const startOffset = data.length
   const endOffset = startOffset + 3
 

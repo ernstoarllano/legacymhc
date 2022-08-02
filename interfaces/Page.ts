@@ -1,3 +1,4 @@
+import { Age } from 'interfaces/Age'
 import { Community } from 'interfaces/Community'
 import { Home } from 'interfaces/Home'
 import { Post } from 'interfaces/Post'
@@ -7,6 +8,7 @@ export interface HomePageProps {
   homes: Home[]
   count: number
   posts: Post[]
+  ages: Age[]
 }
 
 export interface PostPageProps {
@@ -15,4 +17,9 @@ export interface PostPageProps {
 
 export interface BlogPageProps {
   posts: Post[]
+}
+
+export interface CommunityAgePageProps {
+  ages: Age[]
+  communitiesByAge: Age
 }
