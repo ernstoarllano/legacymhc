@@ -1,8 +1,11 @@
+import Footer from 'components/Footer'
 import Header from 'components/Header'
+import Hero from 'components/Hero'
 import Section from 'components/Section'
 import { HomePageProps } from 'interfaces/Page'
-import { GetServerSideProps } from 'next'
+import { GetStaticProps } from 'next'
 import dynamic from 'next/dynamic'
+import Head from 'next/head'
 import { Suspense } from 'react'
 import { getAges } from 'services/getAges'
 import { getCommunities } from 'services/getCommunities'
@@ -32,7 +35,11 @@ const HomePage = ({
 }: HomePageProps) => {
   return (
     <>
+      <Head>
+        <title>Legacy Communities | RV & Manufactured Home Communities</title>
+      </Head>
       <Header ages={ages} />
+      <Hero />
       <Section backgroundColor="bg-gray-100">
         <h2 className="text-blue-700 text-center">{`Discover a Community You\'ll Love`}</h2>
         <p className="text-center">
@@ -60,25 +67,33 @@ const HomePage = ({
         <h2 className="text-blue-700 text-center">From the Blog</h2>
         <BlogGrid posts={posts} />
       </Section>
+      <Footer />
     </>
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const { communities } = await getCommunities()
-  const { homes } = await getHomes()
-  const { count } = await getQueryCount('community')
-  const { posts } = await getPosts()
-  const { ages } = await getAges()
+export const getStaticProps: GetStaticProps = async () => {
+  try {
+    const { communities } = await getCommunities()
+    const { homes } = await getHomes()
+    const { count } = await getQueryCount('community')
+    const { posts } = await getPosts()
+    const { ages } = await getAges()
 
-  return {
-    props: {
-      communities,
-      homes,
-      count,
-      posts,
-      ages,
-    },
+    return {
+      props: {
+        communities,
+        homes,
+        count,
+        posts,
+        ages,
+      },
+      revalidate: 43200,
+    }
+  } catch (err) {
+    console.error(err)
+
+    throw err
   }
 }
 

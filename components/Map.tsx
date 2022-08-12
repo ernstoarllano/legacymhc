@@ -9,6 +9,8 @@ const center = {
 
 const Map = ({ communities }: Map) => {
   const handleLoad = (map: any) => {
+    if (!communities) return
+
     const bounds = new google.maps.LatLngBounds()
 
     communities?.forEach((community) =>

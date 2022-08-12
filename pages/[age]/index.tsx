@@ -49,29 +49,44 @@ const CommunityAgePage = ({
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { ages } = await getAges()
+  try {
+    const { ages } = await getAges()
 
-  const paths = ages.map((age: Age) => ({
-    params: {
-      age: age.slug.current,
-    },
-  }))
+    const paths = ages.map((age: Age) => ({
+      params: {
+        age: age.slug.current,
+      },
+    }))
 
-  return {
-    paths,
-    fallback: false,
+    return {
+      paths,
+      fallback: false,
+    }
+  } catch (err) {
+    console.error(err)
+
+    throw err
   }
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { ages } = await getAges()
-  const { communitiesByAge } = await getCommunitiesByAge(params?.age as string)
+  try {
+    const { ages } = await getAges()
+    const { communitiesByAge } = await getCommunitiesByAge(
+      params?.age as string
+    )
 
-  return {
-    props: {
-      ages,
-      communitiesByAge,
-    },
+    return {
+      props: {
+        ages,
+        communitiesByAge,
+      },
+      revalidate: 43200,
+    }
+  } catch (err) {
+    console.error(err)
+
+    throw err
   }
 }
 
