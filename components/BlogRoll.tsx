@@ -1,9 +1,7 @@
+import { BlogRollProps } from 'interfaces/Blog'
 import Link from 'next/link'
 
-// TODO: Add type definitions
-const BlogRoll = ({ posts }: any) => {
-  console.log(posts)
-
+const BlogRoll = ({ posts }: BlogRollProps) => {
   return (
     <>
       {posts && (
