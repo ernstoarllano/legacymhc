@@ -20,12 +20,16 @@ const BlogPage = ({ posts }: BlogPageProps) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const { posts } = await getPosts(0, 100)
+  try {
+    const { posts } = await getPosts(0, 100)
 
-  return {
-    props: {
-      posts,
-    },
+    return {
+      props: {
+        posts,
+      },
+    }
+  } catch (err) {
+    throw err
   }
 }
 

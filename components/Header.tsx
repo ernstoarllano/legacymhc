@@ -1,8 +1,10 @@
 import Logo from 'components/Logo'
-import { HeaderProps } from 'interfaces/Header'
+import { useAges } from 'hooks/useAges'
 import Link from 'next/link'
 
-const Header = ({ ages }: HeaderProps) => {
+const Header = () => {
+  const { categories } = useAges()
+
   return (
     <header>
       <div className="bg-blue-700">
@@ -31,13 +33,15 @@ const Header = ({ ages }: HeaderProps) => {
       <div className="py-4">
         <div className="lg:flex lg:items-center lg:justify-between w-full max-w-7xl mx-auto px-4 lg:px-0">
           <Logo />
-          {ages && (
+          {categories && (
             <nav>
               <ul className="lg:flex lg:items-center lg:space-x-12">
-                {ages.map((age) => (
-                  <li key={age._id}>
-                    <Link href={age.slug.current}>
-                      <a className="font-bold text-blue-700">{age.title}</a>
+                {categories.map((category) => (
+                  <li key={category._id}>
+                    <Link href={category.slug.current}>
+                      <a className="font-bold text-blue-700">
+                        {category.title}
+                      </a>
                     </Link>
                   </li>
                 ))}

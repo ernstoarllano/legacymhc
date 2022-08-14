@@ -16,26 +16,34 @@ const PostPage = ({ post }: PostPageProps) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { posts } = await getPosts(0, 100)
-  const paths = posts.map((post: Post) => ({
-    params: {
-      slug: post.slug.current,
-    },
-  }))
+  try {
+    const { posts } = await getPosts(0, 100)
+    const paths = posts.map((post: Post) => ({
+      params: {
+        slug: post.slug.current,
+      },
+    }))
 
-  return {
-    paths,
-    fallback: false,
+    return {
+      paths,
+      fallback: false,
+    }
+  } catch (err) {
+    throw err
   }
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { post } = await getPost(params?.slug as string)
+  try {
+    const { post } = await getPost(params?.slug as string)
 
-  return {
-    props: {
-      post,
-    },
+    return {
+      props: {
+        post,
+      },
+    }
+  } catch (err) {
+    throw err
   }
 }
 
