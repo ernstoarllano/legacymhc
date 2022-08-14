@@ -38,3 +38,5 @@ describe('Home Page', () => {
     cy.get('[data-cy="blog"]').children()
   })
 })
+
+export {}
