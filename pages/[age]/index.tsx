@@ -8,17 +8,14 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { getAges } from 'services/getAges'
 import { getCommunitiesByAge } from 'services/getCommunitiesByAge'
 
-const CommunityAgePage = ({
-  ages,
-  communitiesByAge,
-}: CommunityAgePageProps) => {
+const CommunityAgePage = ({ communitiesByAge }: CommunityAgePageProps) => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.GOOGLE_MAP_API || '',
   })
 
   return (
     <>
-      <Header ages={ages} />
+      <Header />
       <section className="lg:grid lg:grid-cols-2 lg:relative lg:min-h-screen">
         <div className="p-10">
           <h1>
@@ -71,14 +68,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
-    const { ages } = await getAges()
     const { communitiesByAge } = await getCommunitiesByAge(
-      params?.age as string
+      params?.age as string,
+      0,
+      100
     )
 
     return {
       props: {
-        ages,
         communitiesByAge,
       },
       revalidate: 43200,

@@ -16,6 +16,5 @@ export interface BlogPageProps {
 }
 
 export interface CommunityAgePageProps {
-  ages: Age[]
   communitiesByAge: Age
 }
