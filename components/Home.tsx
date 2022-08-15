@@ -5,7 +5,7 @@ import { formatState } from 'utils/formatState'
 
 const Home = ({ title, slug, parent, price, bedrooms, bathrooms }: Home) => {
   return (
-    <div>
+    <div className="shrink-0 w-11/12 lg:w-auto snap-center">
       <div
         className="flex flex-col relative mb-8 border border-solid border-gray-300"
         data-cy="image"

@@ -1,4 +1,5 @@
 import Community from 'components/Community'
+import Loading from 'components/Loading'
 import { useAges } from 'hooks/useAges'
 import { Communities } from 'interfaces/Community'
 import { useEffect, useState } from 'react'
@@ -77,11 +78,11 @@ const DiscoverCommunities = () => {
       {communities.length < total && (
         <div className="flex justify-center mt-16">
           <button
-            className="px-4 py-2 text-sm font-bold text-white bg-green-700 uppercase tracking-wider"
+            className="min-w-[120px] px-4 py-4 text-sm font-bold text-white bg-green-700 uppercase tracking-wider"
             onClick={fetchMore}
             data-cy="more"
           >
-            {loading ? 'Loading...' : 'More'}
+            {loading ? <Loading /> : 'More'}
           </button>
         </div>
       )}
