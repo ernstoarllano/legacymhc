@@ -21,7 +21,7 @@ const CommunityAgePage = ({ communitiesByAge }: CommunityAgePageProps) => {
           <h1>
             Our Legacy <span className="font-bold">Your</span> Future
           </h1>
-          <div className="lg:grid lg:grid-cols-2 lg:gap-10">
+          <div className="lg:grid lg:grid-cols-2 lg:gap-6">
             {communitiesByAge.communities &&
               communitiesByAge.communities.map((community) => (
                 <Community

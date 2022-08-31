@@ -23,6 +23,11 @@ export default {
       title: 'Body',
       type: 'array',
       of: [{ type: 'block' }]
+    },
+    {
+      name: 'featuredImage',
+      title: 'Featured Image',
+      type: 'image',
     }
   ]
 }

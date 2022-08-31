@@ -10,7 +10,13 @@ export const getPosts = async (
         _id,
         title,
         slug,
-        body
+        body,
+        featuredImage {
+          asset-> {
+            _id,
+            url
+          }
+        }
       }`
     )
 

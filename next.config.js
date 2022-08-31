@@ -5,6 +5,9 @@ const nextConfig = {
   env: {
     SANITY_PROJECT_ID: process.env.SANITY_PROJECT_ID,
     GOOGLE_MAP_API: process.env.GOOGLE_MAP_API
+  },
+  images: {
+    domains: ['cdn.sanity.io']
   }
 }
 

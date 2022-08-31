@@ -5,4 +5,10 @@ export interface Post {
   title: string
   slug: Slug
   body?: []
+  featuredImage: {
+    asset: {
+      _id: string
+      url: string
+    }
+  }
 }
