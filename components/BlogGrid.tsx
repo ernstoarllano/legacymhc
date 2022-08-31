@@ -41,6 +41,7 @@ const BlogGrid = ({ posts }: BlogGridProps) => {
                       width={618}
                       height={i === 0 ? 666 : 300}
                       layout="responsive"
+                      loading="lazy"
                     />
                   </a>
                 </Link>

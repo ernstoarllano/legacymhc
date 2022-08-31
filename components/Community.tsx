@@ -25,6 +25,7 @@ const Community = ({ category, title, city, state, website }: Community) => {
             layout="responsive"
             width={1500}
             height={860}
+            loading="lazy"
           />
         </a>
         <span

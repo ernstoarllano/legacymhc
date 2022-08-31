@@ -21,6 +21,7 @@ const Home = ({ title, slug, parent, price, bedrooms, bathrooms }: Home) => {
             layout="responsive"
             width={1500}
             height={860}
+            loading="lazy"
           />
         </a>
         <span
