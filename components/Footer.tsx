@@ -4,7 +4,7 @@ const Footer = () => {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="py-16 lg:py-32 bg-blue-700">
+    <footer className="py-16 bg-blue-700">
       <div className="w-full max-w-7xl mx-auto px-4 lg:px-0 text-center space-y-12">
         <Logo isDefault={false} />
         <div className="space-y-6">
